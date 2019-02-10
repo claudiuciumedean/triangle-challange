@@ -1,1 +1,1 @@
-# triangle-challange
+# triangle-challenge
