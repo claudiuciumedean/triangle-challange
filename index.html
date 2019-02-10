@@ -3,35 +3,49 @@
 	<head>
 		<title>Tradeshift Triangle Challange</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="https://developers.tradeshift.com/icons/favicon-32x32.png">
-        <link rel="stylesheet" href="//d5wfroyti11sa.cloudfront.net/prod/client/ts-12.0.1.min.css"/>
+		<link rel="icon" href="https://developers.tradeshift.com/icons/favicon-32x32.png">
+		<link rel="stylesheet" href="/client/dist/css/style.css">
+		<link rel="stylesheet" href="//d5wfroyti11sa.cloudfront.net/prod/client/ts-12.0.1.min.css"/>
 	</head>
 	<body>
-		<div data-ts="App" data-ts.title = "Triangle Challange" data-ts.icon="https://developers.tradeshift.com/icons/favicon-32x32.png">
+		<div class="triangle-calculator" data-ts="App" data-ts.title = "Triangle Challange" data-ts.icon="https://developers.tradeshift.com/icons/favicon-32x32.png">
 			<div data-ts="Main">
 				<div data-ts="Content">
 					<div data-ts="Panel">
-						<form data-ts="Form">
-							<fieldset>
-								<label>
-									<span>Side A</span>
-									<input type="number"/>
-								</label>
-								<label>
-									<span>Side B</span>
-									<input type="number"/>
-								</label>
-								<label>
-									<span>Side C</span>
-									<input type="number"/>
-								</label>
-							</fieldset>
-						</form>
+						<div class="content">
+							<p class="content-info-text">
+								Find out what type of triangle it is.
+								When calculating, please make sure that your respect the triangle inequality theorem.
+								</p>
+							<blockquote class="content-qoute">
+								In mathematics, the triangle inequality states that for any triangle, the sum of the lengths of any two sides must be greater than or equal to the length of the remaining side.
+							</blockquote>
+							<form data-ts="Form">
+								<fieldset>
+									<label>
+										<span>Side A</span>
+										<input type="number" class="input" name="a"/>
+									</label>
+									<label>
+										<span>Side B</span>
+										<input type="number" class="input" name="b"/>
+									</label>
+									<label>
+										<span>Side C</span>
+										<input type="number" class="input" name="c"/>
+									</label>
+								</fieldset>
+								<button data-ts="Button" type="submit" class="ts-primary submit-button">
+									<span>Primary</span>
+								</button>
+							</form>
+						</div>							
 					</div>
 				</div>
 			</div>
         </div>
-        
+		
+		<script src="/client/dist/scripts/main.js" async></script>
         <script src="//d5wfroyti11sa.cloudfront.net/prod/client/ts-12.0.1.min.js" async></script>
 	</body>
 </html>

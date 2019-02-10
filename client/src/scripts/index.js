@@ -1,1 +1,0 @@
-import style from "../_scss/styles.scss";
