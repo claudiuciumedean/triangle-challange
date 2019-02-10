@@ -15,5 +15,5 @@ If the triangle is valid, the server responds with a JSON containing a custom st
 
 # Setting up the project
 1. Clone the repository, navigate to project's root folder and run "npm install".
-2. Run "npm run dev" or "npm run build"
+2. Run "gulp build" and afterwards "npm run server"
 3. The application is running on http://localhost:8080

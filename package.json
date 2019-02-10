@@ -6,11 +6,7 @@
 	"scripts": {
 		"eslint": "./node_modules/.bin/eslint src/scripts",
 		"eslint-fix": "./node_modules/.bin/eslint --fix src/scripts",
-		"server": "nodemon ./server.js",
-		"client-dev": "gulp",
-		"client": "gulp build",
-		"dev": "concurrently \"npm run server\" \"npm run client-dev\"",
-		"build": "concurrently \"npm run server\" \"npm run client\""
+		"server": "nodemon ./server.js"
 	},
 	"author": "",
 	"license": "ISC",

@@ -15,7 +15,7 @@ export default class App {
             const input = this.inputs[i];
             const val = input.value;
 
-            if(!val || isNaN(parseInt(val))) { 
+            if(!val || isNaN(Number(val))) { 
                 ts.ui.Notification.warning(messages.invalidData);
                 obj = null;
                 break;

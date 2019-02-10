@@ -19,6 +19,6 @@ module.exports = class Triangle {
     }
 
     static isTriangle({ a, b, c }) {
-        return (a + b  >= c) && (a + c >= b) && (b + c >= a) ? true : false;
+        return (a + b <= c || a + c <= b || b + c <= a) ? false : true;
     }
 }
