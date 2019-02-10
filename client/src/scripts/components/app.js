@@ -28,14 +28,14 @@ export default class App {
     }
 
     async calculate() {
-        const obj = this.getData();
-        if(!obj) { return; }
+        const data = this.getData();
+        if(!data) { return; }
 
         this.toggleSpinner(true);
 
         await fetch("/check-triangle", {
             method: "POST", 
-            body: JSON.stringify(obj), 
+            body: JSON.stringify(data),
             headers: { "content-type": "application/json" }
         }).then(response => {
             this.toggleSpinner(false);
@@ -45,7 +45,7 @@ export default class App {
             }
 
             response.json().then(data => this.processData(data));
-        });
+        }).catch(err => ts.ui.Notification.error(messages.invalidRequest));
     }
 
     processData(data) {
