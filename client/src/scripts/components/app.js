@@ -4,7 +4,6 @@ export default class App {
     constructor(el) {
         this.el = el;
         this.inputs = [...this.el.querySelectorAll(".input")];
-        this.tsApp = ts.ui.get(".ts-app", app => app);
 
         this.el.querySelector(".submit-button").addEventListener("click", this.calculate.bind(this));
     }
@@ -16,7 +15,7 @@ export default class App {
             const input = this.inputs[i];
             const val = input.value;
 
-            if(isNaN(parseInt(val))) { 
+            if(!val || isNaN(parseInt(val))) { 
                 ts.ui.Notification.warning(messages.invalidData);
                 obj = null;
                 break;
@@ -32,15 +31,14 @@ export default class App {
         const obj = this.getData();
         if(!obj) { return; }
 
-        this.tsApp.blocking(messages.loading);
+        this.toggleSpinner(true);
 
         await fetch("/check-triangle", {
             method: "POST", 
             body: JSON.stringify(obj), 
             headers: { "content-type": "application/json" }
         }).then(response => {
-            this.tsApp.done();
-
+            this.toggleSpinner(false);
             if(response.status !== 200) {
                 ts.ui.Notification.error(messages.invalidRequest);
                 return;
@@ -57,6 +55,17 @@ export default class App {
         }
         
         ts.ui.Notification.info(data.message);
+    }
+
+    toggleSpinner(toggle) {
+        ts.ui.get(".ts-app", app => {
+            if(toggle) {
+                app.blocking(messages.loading);
+                return;
+            }
+            
+            app.done();
+        });
     }
 
     static init() {
