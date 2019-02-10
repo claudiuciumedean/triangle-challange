@@ -1,7 +1,7 @@
 # triangle-challenge
 
 # Description
-An application built in ES6 and Node.js, which outputs the triangle type based on its side lengths.
+An application built in JavaScript, which outputs the triangle type based on its side lengths.
 
 In order to solve the triangle challange, I chose to implement the server and the "business rules" in Node.js, and the client was built in ES6. In addition to this, the application's simple UI was built by using Tradeshift's UI components.
 
