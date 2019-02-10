@@ -1,4 +1,4 @@
-const messages = require("./app-messages");
+const messages = require("./server-messages");
 const { convertObjStringsToNumbers } = require("./utils");
 const Triangle  = require("./triangle");
 
