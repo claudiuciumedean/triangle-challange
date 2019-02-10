@@ -31,15 +31,19 @@ export default class App {
         const obj = this.getData();
         if(!obj) { return; }
 
+        this.toggleSpinner(true);
+
         await fetch("/check-triangle", {
             method: "POST", 
             body: JSON.stringify(obj), 
             headers: { "content-type": "application/json" }
         }).then(response => {
+            this.toggleSpinner(false);
             if(response.status !== 200) {
                 ts.ui.Notification.error(messages.invalidRequest);
                 return;
             }
+            
             response.json().then(data => this.processData(data));
         });
     }
@@ -51,6 +55,17 @@ export default class App {
         }
         
         ts.ui.Notification.info(data.message);
+    }
+
+    toggleSpinner(toggle) {
+        ts.ui.get(".ts-app", app => {
+            if(toggle) {
+                app.blocking(messages.loading);
+                return;
+            }
+
+            app.done();
+        });
     }
 
     static init() {
